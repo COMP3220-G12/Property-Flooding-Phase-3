@@ -45,6 +45,22 @@ class UserInterface extends Visualizer
                     records.sort();
                     displayRecords();
                     break;
+                    
+                case 7:
+                    System.out.println("Welcome to The City of Windsor's Flooding History API ");
+					System.out.print("ENTER THE STREET NAME: ");
+                    String streetname = sc.next();
+                    System.out.println("Floodings reported at the street entered are: ");
+                    Findflood stFlood = new Findflood(streetname, newRecordList);
+                    ArrayList<Record> sFlood = stFlood.find();
+                    if(sFlood.size()==0)
+                        System.out.println("There are NO customer initiated service requests found for street entered.");
+                    else {
+                        for (Record i : sFlood)
+                            System.out.println(i);
+                    }
+                    break;
+                    
                 case 0:
                     done = true;
                     break;
@@ -63,6 +79,7 @@ class UserInterface extends Visualizer
         System.out.println("4. Display last record.");
         System.out.println("5. Display all records.");
         System.out.println("6. Display sorted records.");
+        System.out.println("7. Display Flood Services History using Street Name.");
         System.out.println("0. Exit");
     }
 
