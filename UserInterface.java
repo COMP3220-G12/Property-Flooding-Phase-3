@@ -1,13 +1,19 @@
+//Terminal text interface
+//By the Greater pattern, this class is independent from the creation of its objects. It's instances are created by Main.
+//It maintains high cohesion as its central purpose is data visualization in text mood.
+
 import java.util.ArrayList;
 import java.util.Scanner;
+//Defult constractor
 class UserInterface extends Visualizer
 {
 
     public UserInterface()
     {
-        super();
+        super(); //super is Visualizer
     }
 
+    //implemantaion of the abstract method from Visualizer
     public void displayViewer()
     {
         boolean done = false;
@@ -17,9 +23,11 @@ class UserInterface extends Visualizer
             displayMenu();
             System.out.print("Enter menu option: ");
             int selection;
-            Scanner sc = new Scanner(System.in);
+           // Declare a scanner to scan user input.
+	   Scanner sc = new Scanner(System.in);
             selection = sc.nextInt();
-            switch(selection)
+            //switch between the different commands on the menu.
+	    switch(selection)
             {
                 case 1:
                     currentRecord = 0;
@@ -70,7 +78,7 @@ class UserInterface extends Visualizer
             }
         }while(!done);
     }
-
+     // print the interactive menu.
     public void displayMenu()
     {
         System.out.println("1. Display first record.");
