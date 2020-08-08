@@ -1,6 +1,10 @@
+//This class is designed to display all the flood services history according to street name entered by user
+//It maintains high cohesion since it only contains elements related to finding the flood requests. 
+
 import java.util.ArrayList;
 
 public class Findflood {
+    //attributes
     private String street;
     private ArrayList<Record> floods;
 
@@ -11,7 +15,7 @@ public class Findflood {
         this.floods = floods;
     }
 
-    //create a list for the nearest community centres
+    //create a list for the flood requests in specific streets entered by user 
     public ArrayList<Record> find()
     {
         ArrayList<Record> sameStreet = new ArrayList<>();
