@@ -1,4 +1,5 @@
 // This class loads records from the file mentioned in Template.
+//It maintains high cohesion since it only contains elements related to loading the file. 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
