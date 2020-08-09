@@ -4,7 +4,7 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
-//Defult constractor
+//This class polymorphically extends the abstract class visualizer 
 class UserInterface extends Visualizer
 {
 
