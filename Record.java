@@ -9,10 +9,31 @@ import java.util.Iterator;
 
 public class Record implements Template
 {
+  
+  // inner class to define a filed (the building block of a record)
+   class Field
+    {
+        //filed attributes
+        public String type;
+        public String label;
+        public String value;
+
+        public Field(String type, String label, String value)
+        {
+            this.type = type;
+            this.label = label;
+            this.value = value;
+        }
+        public String toString()
+        {
+            return " " + label + ": " + value;
+        }
+    }
+  
     // to create a Hashmap with Keys and arry of record
     public HashMap<Integer, Field> recordMap;
- // create a blank record, then each record will have it's own fields
-// each line is a record and fields are seperated by ","
+    // create a blank record, then each record will have it's own fields
+    // each line is a record and fields are seperated by ","
     public Record (String line)
     {
         recordMap = new HashMap<>();
@@ -33,20 +54,7 @@ public class Record implements Template
 
         return true;
     }
-    //override toString
-    public String toString()
-    {
-        String line="";
-        Iterator<Integer> keySetIterator = recordMap.keySet().iterator();
-        Integer key;
-        while(keySetIterator.hasNext())
-        {
-            key = keySetIterator.next();
-            if (key == 0) line+=recordMap.get(key);
-            else line+=DELIMITER+recordMap.get(key);
-        }
-        return line;
-    }
+  
     //get methods
     public String getType(int fieldIndex)
     {
@@ -68,24 +76,20 @@ public class Record implements Template
     {
         return Double.parseDouble(recordMap.get(4).value);
     }
-
-   // inner class to define a filed (the bulding bloack of a record )
-   class Field
+    
+     //override toString
+    public String toString()
     {
-        //filed attributes
-        public String type;
-        public String label;
-        public String value;
-
-        public Field(String type, String label, String value)
+        String line="";
+        Iterator<Integer> keySetIterator = recordMap.keySet().iterator();
+        Integer key;
+        while(keySetIterator.hasNext())
         {
-            this.type = type;
-            this.label = label;
-            this.value = value;
+            key = keySetIterator.next();
+            if (key == 0) line+=recordMap.get(key);
+            else line+=DELIMITER+recordMap.get(key);
         }
-        public String toString()
-        {
-            return " " + label + ": " + value;
-        }
+        return line;
     }
+
 }
