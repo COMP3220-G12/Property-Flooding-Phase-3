@@ -13,7 +13,7 @@ abstract class Visualizer implements Template
     public ArrayList<Record> newRecordList;
     //abstract method	
     public abstract void displayViewer();
-   //constractor to instantiate a record
+    //default constructor to instantiate a record
     public Visualizer()
     {
         records = new Load();
